@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Burger app with MySQL, express, node and homemade ORM",
   "main": "server.js",
+  "engines": {"node": "6.9.1"},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
