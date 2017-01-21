@@ -2,15 +2,46 @@
 
 <h2>Devour them while you can !</h2>
 
+<h2> Burgers </h2>
+
 <ul>
   {{#each burgers}}
       <li>
         {{this.burger_name}}
 
         <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devour" value="true">
+          <input type="hidden" name="devoured" value="true">
           <button type="submit">Devour it!</button>
         </form>
       </li>
+
   {{/each}}
 </ul>
+
+
+<h2> Devoured </h2>
+
+{{#each burgers}}
+    {{#if this.devoured}}
+      <li>
+      	{{this.burger_name}}
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="true">
+        </form>
+      </li>
+      {{/if}}
+  {{/each}}
+
+
+
+
+<h2>Add a Burger</h2>
+<form class="create-update-form" action="/" method="POST">
+
+  <div class="form-group">
+    <label for="ca">Cat Name:</label>
+    <input type="text" id="ca" name="burger_name">
+  </div>
+
+  <button type="submit">Add a burger!</button>
+</form>
